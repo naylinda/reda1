@@ -1,186 +1,234 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redações</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, #ff9cd4, #ffd6e8, #fff0f5);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .container {
-            max-width: 700px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 60px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        h1 {
-            text-align: center;
-            font-weight: 600;
-            color: #d63384;
-            margin-bottom: 30px;
-            font-size: 36px;
-        }
-
-        .button-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .button-container button {
-            background-color: #ff9cd4;
-            border: none;
-            color: rgb(0, 0, 0);
-            padding: 12px 20px;
-            margin: 5px;
-            border-radius: 12px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .button-container button:hover {
-            background-color: #d63384;
-            color: #fff;
-        }
-
-        /* ===== REDAÇÕES CENTRALIZADAS ===== */
-        .redacao {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 40px;
-            max-width: 80%;
-            max-height: 80%;
-            overflow-y: auto;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-
-        .redacao h2 {
-            font-weight: 600;
-            color: #d63384;
-            margin-bottom: 15px;
-        }
-
-        /* Botão de fechar redação */
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: #d63384;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .close-btn:hover {
-            background: #ff9cd4;
-            color: #000;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redações</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, #ff9cd4, #ffd6e8, #fff0f5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.container {
+    max-width: 700px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 60px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+h1 {
+    text-align: center;
+    font-weight: 600;
+    color: #d63384;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.button-container button {
+    background-color: #ff9cd4;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.button-container button:hover {
+    background-color: #d63384;
+    color: #fff;
+}
+.redacao {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 40px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+.redacao h2 {
+    font-weight: 600;
+    color: #d63384;
+    margin-bottom: 15px;
+}
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #d63384;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.close-btn:hover {
+    background: #ff9cd4;
+    color: #000;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Redações</h1>
-        <div class="button-container">
-            <button onclick="mostrarRedacao(1)">1. Procedimentos Estéticos</button>
-            <button onclick="mostrarRedacao(2)">2. Acessibilidade e Inclusão</button>
-            <button onclick="mostrarRedacao(3)">3. Qualidade de Vida</button>
-            <button onclick="mostrarRedacao(4)">4. Mudanças Climáticas</button>
-            <button onclick="mostrarRedacao(5)">5. Lixo Eletrônico</button>
-            <button onclick="mostrarRedacao(6)">6. Consumo Ultraprocessado</button>
-            <button onclick="mostrarRedacao(7)">7. Dependência em Jogos</button>
-            <button onclick="mostrarRedacao(8)">8. Trabalho Voluntário</button>
-            <button onclick="mostrarRedacao(9)">9. Adultização Infantil</button>
-            <button onclick="mostrarRedacao(10)">10. Etarismo</button>
-            <button onclick="mostrarRedacao(11)">11. Educação Financeira</button>
-            <button onclick="mostrarRedacao(12)">12. Cultura Popular</button>
-            <button onclick="mostrarRedacao(13)">13. Saneamento Básico</button>
-            <button onclick="mostrarRedacao(14)">14. Esporte</button>
-            <button onclick="mostrarRedacao(15)">15. Crônica</button>
-        </div>
+<div class="container">
+    <h1>Redações</h1>
+    <div class="button-container">
+        <button onclick="mostrarRedacao(1)">1. Procedimentos Estéticos</button>
+        <button onclick="mostrarRedacao(2)">2. Acessibilidade e Inclusão</button>
+        <button onclick="mostrarRedacao(3)">3. Qualidade de Vida</button>
+        <button onclick="mostrarRedacao(4)">4. Mudanças Climáticas</button>
+        <button onclick="mostrarRedacao(5)">5. Lixo Eletrônico</button>
+        <button onclick="mostrarRedacao(6)">6. Consumo Ultraprocessado</button>
+        <button onclick="mostrarRedacao(7)">7. Dependência em Jogos</button>
+        <button onclick="mostrarRedacao(8)">8. Trabalho Voluntário</button>
+        <button onclick="mostrarRedacao(9)">9. Adultização Infantil</button>
+        <button onclick="mostrarRedacao(10)">10. Etarismo</button>
+        <button onclick="mostrarRedacao(11)">11. Educação Financeira</button>
+        <button onclick="mostrarRedacao(12)">12. Cultura Popular</button>
+        <button onclick="mostrarRedacao(13)">13. Saneamento Básico</button>
+        <button onclick="mostrarRedacao(14)">14. Esporte</button>
+        <button onclick="mostrarRedacao(15)">15. Crônica</button>
     </div>
+</div>
 
-    <!-- Exemplo de redação -->
-    <div id="redacao1" class="redacao">
-        <button class="close-btn" onclick="fecharRedacao(1)">Fechar</button>
-        <h2>1. Acessibilidade e inclusão de Pessoas com Deficiência no Brasil</h2>
-        <p>Nos últimos anos, é fácil perceber que cada vez mais jovens recorrem a procedimentos estéticos. Um dos principais motivos é a influência das redes sociais, que mostram padrões de beleza muitas vezes irreais. Fotos editadas e filtros criam a impressão de que é preciso ter um rosto ou corpo perfeito para ser aceito. Outro fator é que as técnicas de estética estão mais acessíveis e menos invasivas, facilitando uma decisão de fazer uma mudança. Muitos acabam buscando esses procedimentos para melhorar a autoestima ou para se encaixar em um padrão imposto. Apesar disso, é importante lembrar que a pressão estética pode trazer consequências, como insegurança e insatisfação constante com a própria imagem. Valorizar a diversidade e aprender a aceitar o próprio corpo são passos essenciais para que a estética seja uma boa escolha consciente, e não uma obrigação. Assim, é fundamental promover a autoestima e incentivar escolhas saudáveis, para que a beleza seja vista de forma livre e natural.</p>
-    </div>
-    <div id="redacao2" class="redacao">
-        <button class="close-btn" onclick="fecharRedacao(1)">Fechar</button>
-        <h2>1. Por que os procedimentos estéticos estão aumentando entre os jovens?</h2>
-        <p>A acessibilidade é a inclusão de pessoas com deficiência são pilares fundamentais 
-            para a construção de uma sociedade justa e igualitária. No Brasil, embora existam leis
-             e políticas públicas voltadas para a garantia de direitos, ainda há um longo caminho a
-             percorrer para que tais princípios sejam efetivamente aplicados no cotidiano. Barreiras 
-             físicas, comunicacional e atitudinais persistem, limitando o pleno exercício da cidadania 
-             dessas pessoas. No campo legislativo, a lei brasileira de inclusão da Pessoa com 
-             Deficiência, representa um marco ao estabelecer diretrizes para a promoção da
-              acessibilidade em diversos setores, como transporte, educação, trabalho e lazer. 
-              Contudo, a implementação dessas medidas encontra obstáculos, principalmente pela 
-              falta de fiscalização e de conscientização da população. Ruas mal adaptadas, prédios
-               sem rampas ou elevadores adequados e ausência de recursos como intérpretes de libras
-                ainda são problemas comuns nas cidades brasileiras. Portanto, garantir a
-                acessibilidade e a inclusão de pessoas com deficiência no Brasil é um desafio que
-                 demanda ação conjunta do Estado, da iniciativa privada e da sociedade. Investir
-                  em políticas públicas eficazes, fiscalizar seu cumprimento e promover a 
-                  conscientização coletiva são passos essenciais para que todos possam exercer
-                  plenamente sua cidadania. Assim, será possível construir um país em que a 
-                  diversidade seja reconhecida como um valor e a igualdade de oportunidade, seja
-                   uma realidade para todos.</p>
-    </div>
+<!-- REDAÇÕES -->
+<div id="redacao1" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(1)">Fechar</button>
+<h2>1. Por que os procedimentos estéticos estão aumentando entre os jovens?</h2>
+<p>Nos últimos anos, é fácil perceber que casa vez mais, jovens recorrem a procedimentos estéticos. Um dos principais motivos é a influência redes sociais, que mostram padrões de beleza muitas vezes irreais. Fotos editadas e filtros criam a impressão de que é preciso ter um rosto ou corpo perfeito para ser aceito. Outro fator é que as técnicas de estética estão mais acessíveis e menos invasivas, facilitando uma decisão de fazer uma mudança. Muitos acabam buscando esses procedimentos para melhorar a autoestima ou para se encaixar em um padrão imposto. Apesar disso, é importante lembrar que a pressão estética pode trazer consequências, como insegurança e insatisfação constante com a própria imagem. Valorizar a diversidade e aprender a aceitar o próprio corpo são passos essenciais para que a estética seja uma boa escolha consciente, e não uma obrigação. Assim, é fundamental promover a autoestima e incentivar escolhas saudáveis, para que a beleza seja vista de forma livre e natural.</p>
+</div>
 
+<div id="redacao2" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(2)">Fechar</button>
+<h2>2. Acessibilidade e inclusão de Pessoas com Deficiência no Brasil</h2>
+<p>A acessibilidade e a inclusão de pessoas com deficiência são pilares fundamentais para a construção de uma sociedade justa e igualitária. No Brasil, embora existam leis e políticas públicas voltadas para a garantia de direitos, ainda há um longo caminho a percorrer para que tais princípios sejam efetivamente aplicados no cotidiano. Barreiras físicas, comunicacionais e atitudinais persistem, limitando o pleno exercício da cidadania dessas pessoas.</p>
+<p>No campo legislativo, a lei brasileira de inclusão da Pessoa com Deficiência, representa um marco ao estabelecer diretrizes para a promoção da acessibilidade em diversos setores, como transporte, educação, trabalho e lazer. Contudo, a implementação dessas medidas encontra obstáculos, principalmente pela falta de fiscalização e de conscientização da população. Ruas mal adaptadas, prédios sem rampas ou elevadores adequados e ausência de recursos como intérpretes de libras ainda são problemas comuns nas cidades brasileiras.</p>
+<p>Portanto, garantir a acessibilidade e a inclusão de pessoas com deficiência no Brasil é um desafio que demanda ação conjunta do Estado, da iniciativa privada e da sociedade. Investir em políticas públicas eficazes, fiscalizar seu cumprimento e promover a conscientização coletiva são passos essenciais para que todos possam exercer plenamente sua cidadania. Assim, será possível construir um país em que a diversidade seja reconhecida como um valor e a igualdade de oportunidade, seja uma realidade para todos.</p>
+</div>
 
-    <script>
-        function mostrarRedacao(num) {
-            const todasRedacoes = document.querySelectorAll('.redacao');
-            todasRedacoes.forEach(r => r.style.display = 'none');
-            const redacaoSelecionada = document.getElementById('redacao' + num);
-            if (redacaoSelecionada) {
-                redacaoSelecionada.style.display = 'block';
-            }
-        }
+<div id="redacao3" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(3)">Fechar</button>
+<h2>3. Principais fatores que influenciam na qualidade de vida e no bem-estar da população</h2>
+<p>A qualidade de vida e do bem-estar das pessoas depende de vários fatores que se conectam. Um dos mais importantes é ter acesso à saúde e educação de boa qualidade. Esses dois pontos ajudam as pessoas a se desenvolverem melhor, cuidarem da própria saúde e terem mais oportunidades no futuro. Também é essencial ter moradia adequada, com saneamento básico e segurança. Morar em um lugar limpo e seguro traz mais tranquilidade e evita doenças. O meio ambiente tem grande influência: como áreas verdes e espaços para lazer ajudam na saúde física e mental. A renda é outro fator importante, pois permite comprar o que é necessário, ter acesso a serviços e viver com mais conforto. Além disso, boas relações com a família, amigos e comunidade fazem as pessoas se sentirem mais apoiadas e felizes. Por isso, melhorar a qualidade de vida exige que governo, sociedade e indivíduos trabalhem juntos, garantindo condições justas para todos viverem com saúde, segurança e oportunidades.</p>
+</div>
 
-        function fecharRedacao(num) {
-            const redacao = document.getElementById('redacao' + num);
-            if (redacao) {
-                redacao.style.display = 'none';
-            }
-        }
-    </script>
+<div id="redacao4" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(4)">Fechar</button>
+<h2>4. As mudanças climáticas no Brasil e seus desafios</h2>
+<p>As mudanças climáticas representam um dos maiores desafios atuais para o Brasil. O aumento das temperaturas, as chuvas intensas em algumas regiões e as secas prolongadas em outras mostram que o problema já afeta o dia a dia da população. Esses fenômenos prejudicam a agricultura, a produção de energia elétrica e colocam em risco a vida de milhares de pessoas. Um dos grandes desafios é equilibrar o desenvolvimento econômico com a preservação ambiental. O desmatamento da Amazônia e a expansão de atividades que geram poluição contribuem para o agravamento da situação. Além disso, a falta de políticas públicas fortes e de conscientização da sociedade dificulta a busca por soluções efetivas. Enfrentar esse cenário exige responsabilidade coletiva. Investir em energias limpas, incentivar práticas sustentáveis e promover a educação ambiental são passos essenciais. Só assim o Brasil poderá reduzir os impactos climáticos e garantir um futuro mais seguro e saudável para as próximas gerações, com justiça, equilíbrio e consciência ambiental.</p>
+</div>
+
+<div id="redacao5" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(5)">Fechar</button>
+<h2>5. A consequência do descarte do lixo eletrônico</h2>
+<p>Com o avanço da tecnologia, a cada ano surgem novos modelos de celulares, computadores e eletrodomésticos. Esse ritmo acelerado faz com que aparelhos antigos sejam descartados rapidamente, gerando um grande volume de lixo eletrônico. O problema é que esses materiais não são comuns, eles contêm metais e substâncias tóxicas, capazes de poluir o solo e a água, trazendo sérios riscos à saúde e ao meio ambiente. Outro ponto preocupante é que muitos desses equipamentos poderiam ser reaproveitados. No entanto, por falta de informação e de pontos de coleta adequados, acabam indo parar em lixões e aterros. Isso mostra como a ausência de políticas públicas e de campanhas educativas dificulta a adoção de práticas sustentáveis. Diante disso, é fundamental que o governo, empresas e cidadãos assumam a responsabilidade conjunta. Investir em reciclagem, criar locais de descarte acessíveis e incentivar o consumo consciente são medidas necessárias para reduzir os impactos do lixo eletrônico e garantir um futuro mais equilibrado para todos.</p>
+</div>
+<div id="redacao6" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(6)">Fechar</button>
+<h2>6. O consumo ultraprocessado e suas consequências à saúde</h2>
+<p>Hoje em dia, é comum ver pessoas consumindo alimentos ultraprocessados com frequência. Por serem práticos, baratos e de fácil acesso, esses produtos acabam substituindo refeições mais naturais. Exemplos comuns são refrigerantes, salgadinhos, biscoitos recheados e comidas congeladas, que estão presentes no cotidiano de muitas famílias. Apesar da praticidade, esse hábito traz sérios problemas para a saúde. Os ultraprocessados possuem excesso de sódio, açúcar e gorduras ruins, que podem causar obesidade, pressão alta e até diabetes. Além disso, eles contêm muitos aditivos químicos, que prejudicam o organismo quando consumidos por longo período. Assim, a alimentação se torna desequilibrada e pode comprometer a qualidade de vida. Por isso, é importante estimular escolhas mais saudáveis no dia a dia. Investir em frutas, legumes e alimentos frescos é uma forma de prevenir doenças e melhorar o bem-estar. Também é necessário que campanhas de conscientização mostrem os riscos dos ultraprocessados, ajudando a população a refletir sobre seus hábitos alimentares.</p>
+</div>
+
+<div id="redacao7" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(7)">Fechar</button>
+<h2>7. Fatores e efeitos da dependência em jogos de apostas na web</h2>
+<p>Com a internet cada vez mais presente no dia a dia, os jogos de apostas online se tornaram muito populares. A facilidade de jogar pelo celular, a ideia de ganhar dinheiro rápido e as propagandas chamativas são alguns dos fatores que levam muitas pessoas a começar nesse tipo de prática. No início pode parecer só diversão, mas em pouco tempo alguns acabam desenvolvendo uma forte dependência. Essa dependência traz vários problemas. O principal é o financeiro, já que muitas vezes a pessoa perde mais do que ganha e se endivida tentando recuperar o prejuízo. Além disso, há efeitos emocionais como ansiedade, estresse e até depressão. A convivência com a família e amigos também pode ser prejudicada, assim como o rendimento nos estudos ou no trabalho. Por isso, é importante falar mais sobre os riscos dos jogos de apostas online. Campanhas de conscientização e o apoio da família podem ajudar a evitar que esse passatempo se transforme em um vício que prejudique a vida inteira.</p>
+</div>
+
+<div id="redacao8" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(8)">Fechar</button>
+<h2>8. A importância do trabalho voluntário no combate às desigualdades sociais</h2>
+<p>No Brasil, a desigualdade social é um dos maiores problemas e afeta milhões de pessoas diariamente. Falta de moradia digna, dificuldade de acesso à educação e até mesmo à fome fazem parte da realidade de muitos. Nesse cenário, o trabalho voluntário aparece como uma forma prática de ajudar e fazer diferença na vida de quem mais precisa. Ser voluntário não significa apenas doar coisas, mas também doar tempo e atenção. Um simples gesto, como ensinar uma criança, ajudar em um projeto comunitário ou apoiar campanhas de arrecadação, já pode transformar realidades. Essa atitude mostra que a mudança não depende só do governo, mas também da participação ativa da população. Além de beneficiar quem recebe, o voluntariado também traz crescimento pessoal para quem pratica, já que desperta empatia e senso de responsabilidade social. Assim, quando mais pessoas se envolvem, mais chance temos de diminuir as desigualdades e construir um país mais justo.</p>
+</div>
+
+<div id="redacao9" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(9)">Fechar</button>
+<h2>9. Adultização infantil</h2>
+<p>A infância é um período da vida que deveria ser leve, cheio de brincadeiras e descobertas. Porém, cada vez mais vemos crianças sendo pressionadas a agir como adultos, seja pela mídia, pelas redes sociais ou até pelas próprias famílias. Esse processo, chamado adultização infantil, rouba uma fase que não volta. Quando isso acontece, as consequências aparecem cedo. Crianças que deixam de brincar e começam a se preocupar com aparência, responsabilidades ou problemas de adultos acabam sofrendo com ansiedade e insegurança. Além disso, perdem a chance de viver experiências importantes para a criatividade, para a imaginação e para a convivência com outras crianças. No futuro, podem se tornar adultos inseguros, com dificuldades para lidar com sentimentos e frustrações. Por isso, é importante que pais, escolas e a sociedade em geral protejam a infância. Garantir tempo para brincar, aprender e sonhar é essencial para que as crianças cresçam mais felizes e preparadas para a vida.</p>
+</div>
+
+<div id="redacao10" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(10)">Fechar</button>
+<h2>10. Caminhos para combater o etarismo nas relações sociais</h2>
+<p>O etarismo é o preconceito contra alguém devido à idade, e infelizmente ainda é muito comum. Pessoas mais velhas muitas vezes são vistas como ultrapassadas, enquanto jovens são considerados inexperientes. Esse tipo de atitude causa exclusão e impede que todos tenham as mesmas oportunidades na sociedade. Para mudar isso, é importante conversar mais sobre o tema e mostrar que idade não define capacidade. Campanhas nas redes sociais, nas escolas e nos locais de trabalho podem ajudar a conscientizar as pessoas. Além disso, as empresas deveriam valorizar o conhecimento e a experiência de todos, sem olhar apenas para idade. Também é essencial que a mídia mostre exemplos positivos de pessoas de todas as idades, destacando suas conquistas e talentos. A convivência entre gerações traz aprendizado, empatia e troca de experiências valiosa. No fim das contas, combater o etarismo é uma questão de respeito. Quando aprendemos a ouvir e valorizar as pessoas de todas as idades, criamos relações sociais mais justas e humanas.</p>
+</div>
+
+<div id="redacao11" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(11)">Fechar</button>
+<h2>11. A importância da educação financeira para os jovens</h2>
+<p>Aprender a lidar com o dinheiro desde cedo é muito importante para os jovens. Hoje em dia, é fácil gastar sem pensar, principalmente com tanta influência das redes sociais e das modas do momento. Por isso, saber organizar as finanças ajuda a evitar problemas no futuro e a ter mais controle sobre o que se ganha e o que se gasta. Quando o jovem entende como o dinheiro funciona, como economizar, planejar e até investir, ele se torna mais preparado para conquistar seus objetivos e não cair em dívidas. Seria ótimo se as escolas ensinassem mais sobre isso, já que essa é uma habilidade que faz diferença na realidade. Em resumo, a educação financeira ajuda o jovem a ser mais responsável e consciente. Aprender a usar bem o dinheiro é um passo importante para garantir um futuro mais tranquilo e cheio de oportunidades, trazendo segurança, estabilidade e liberdade para realizar seus sonhos.</p>
+</div>
+
+<div id="redacao12" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(12)">Fechar</button>
+<h2>12. Desafio para a valorização da cultura popular brasileira</h2>
+<p>A cultura popular brasileira é uma das maiores riquezas do nosso país. Ela mostra mistura de povos, crenças e tradições que formam quem somos. Mesmo assim, ainda é comum ver muita gente dando mais valor ao que vem de fora do que às nossas próprias manifestações culturais. Um dos grandes desafios é o desinteresse das novas gerações, que preferem músicas, danças e costumes estrangeiros, esquecendo festas como o bumba meu boi, o Maracatu e o frevo. Além disso, falta incentivo e apoio para os artistas populares continuarem com seu trabalho. Muitos mantêm vivas tradições importantes, mas quase sempre por conta própria e com poucos recursos. Outro problema é o preconceito cultural, que faz algumas pessoas enxergarem a cultura popular como algo menor. Na verdade, é ela que carrega a verdadeira identidade do Brasil. Valorizar essas tradições é reconhecer a força do nosso povo e entender que sem elas, nós perdemos uma parte essencial da nossa história.</p>
+</div>
+
+<div id="redacao13" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(13)">Fechar</button>
+<h2>13. Caminhos para a universalização do saneamento básico no Brasil</h2>
+<p>O saneamento básico é algo essencial para qualquer pessoa viver com dignidade, mas no Brasil ainda é um grande desafio. Em muitas regiões, especialmente nas periferias e áreas rurais, falta água tratada e rede de esgoto, o que causa doenças e prejudica a qualidade de vida, isso mostra como ainda há muita desigualdade no país. Para mudar essa realidade, é preciso mais investimento do governo e também uma boa fiscalização para garantir que o dinheiro seja bem usado. Além disso, campanhas de conscientização podem ajudar as pessoas a entenderem a importância do uso correto da água e do descarte de lixo. Parcerias entre o setor público e privado também podem acelerar as obras e levar saneamento a mais lugares. Universalizar o saneamento não é só uma questão de infraestrutura, mas de saúde, respeito e justiça social. Quando todos tiverem acesso a esses serviços, o país será mais justo e desenvolvido.</p>
+</div>
+
+<div id="redacao14" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(14)">Fechar</button>
+<h2>14. O papel do esporte como ferramenta de transformação social</h2>
+<p>O esporte vai muito além das competições e medalhas; ele consegue mudar vidas. Em muitas comunidades, especialmente nas mais carentes, a prática esportiva é uma chance de sair de situações difíceis e encontrar um novo caminho. Através do esporte, jovens aprendem valores como respeito, disciplina, trabalho em equipe e superação, que servem não só dentro das quadras ou campos, mas também na vida. Além disso, projetos esportivos podem afastar crianças e adolescentes da criminalidade e das drogas, oferecendo um ambiente saudável e de convivência. Também é uma forma de inclusão, já que pessoas de diferentes origens, gêneros e condições físicas podem participar e se sentir parte de algo maior. Portanto, investir no esporte é investir na sociedade. Quando o poder público e a comunidade se unem para incentivar a prática esportiva, o resultado é uma geração mais consciente, saudável e esperançosa. O esporte transforma porque ensina a sonhar e a correr atrás dos sonhos.</p>
+</div>
+
+<div id="redacao15" class="redacao">
+<button class="close-btn" onclick="fecharRedacao(15)">Fechar</button>
+<h2>15. Crônica</h2>
+<p>O despertador tocou como se quisesse brigar comigo, mais cinco minutinhos pensei, mas o tempo não perdoa. Lá estava eu, correndo para não perder a hora. Mochila de um lado, fone do outro e o pensamento já dividido entre a lição de hoje, o trabalho e a hora de ir para casa. O colégio foi o de sempre, risada no intervalo, na sala, professores tentando manter a ordem entre uma explicação e outra, e minha mente já estava nos latidos e miados que me esperavam. Quando a aula acabou, corri para pegar o ônibus e nessa hora fiquei pensando no meu futuro. Será que vou conseguir ser quem eu realmente quero? Será que vou entrar na faculdade dos meus sonhos? Às vezes parece tudo tão longe, mas sigo mesmo com o coração cheio de dúvidas. E logo cheguei atrasada no trabalho e lá estavam eles, meus companheiros de 4 patas me esperando com aqueles olhinhos que tiram qualquer tristeza. Cachorros por todo lado, uma bagunça boa que só quem gosta entende! Mesmo com as mordidas, o cheiro de ração, os pelos grudados na roupa, tem algo ali que me faz ficar. Quando o dia termina e volto para casa e penso, é difícil, mas é isso que quero para mim, porque entre provas, atrasos e patinhas, descubro que o amor também pode vir cheio de pelos, arranhões e lambidas sinceras, e é nesse amor que encontro forças para continuar. Cada pequeno gesto, um olhar, um pelo, um miado pedindo carinho, vale cada esforço. Entre a correria do dia e os sonhos de amanhã, aprendo que a felicidade não está nos grandes feitos, mas nos momentos simples que a vida coloca à nossa frente, e é por esses momentos, por esses olhinhos brilhantes e rabos abanando, que continuo acreditando em mim, no meu futuro e naquilo que realmente faz meu coração bater mais forte.</p>
+</div>
+
+<script>
+function mostrarRedacao(num) {
+    const todasRedacoes = document.querySelectorAll('.redacao');
+    todasRedacoes.forEach(r => r.style.display = 'none');
+    const redacaoSelecionada = document.getElementById('redacao' + num);
+    if (redacaoSelecionada) {
+        redacaoSelecionada.style.display = 'block';
+    }
+}
+
+function fecharRedacao(num) {
+    const redacao = document.getElementById('redacao' + num);
+    if (redacao) {
+        redacao.style.display = 'none';
+    }
+}
+</script>
 </body>
 </html>
-
 
