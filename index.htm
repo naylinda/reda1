@@ -7,6 +7,7 @@
     <!-- Fonte legível para texto -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* ===== BODY COM FUNDO BONITO ===== */
         body {
             margin: 0;
             padding: 0;
@@ -17,17 +18,30 @@
             justify-content: center;
             align-items: center;
             position: relative;
+
+            /* Fundo em gradiente animado */
+            background: linear-gradient(135deg, #ff9cd4, #ffd6e8, #fff0f5);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ===== CONTAINER ===== */
         .container {
             max-width: 700px;
             padding: 30px;
-            background: rgba(255, 240, 245, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 60px;
-            box-shadow: 0 0 100px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
             z-index: 1;
         }
 
+        /* ===== TÍTULO ===== */
         h1 {
             text-align: center;
             font-weight: 600;
@@ -36,6 +50,7 @@
             font-size: 36px;
         }
 
+        /* ===== BOTÕES ===== */
         .button-container {
             text-align: center;
             margin-bottom: 20px;
@@ -55,8 +70,10 @@
 
         .button-container button:hover {
             background-color: #d63384;
+            color: #fff;
         }
 
+        /* ===== REDAÇÕES ===== */
         .redacao {
             display: none;
             margin-top: 20px;
@@ -69,32 +86,9 @@
             color: #d63384;
             margin-bottom: 15px;
         }
-
-        /* Imagem de fundo */
-        .background-img {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
     </style>
 </head>
 <body>
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Teste Absoluto da Imagem</h1>
-<img src="file:///C:/workspaces/reda1/castelo.png" width="500" alt="Teste">
-</body>
-</html>
-
-
-
-
-
     <div class="container">
         <h1>Redações</h1>
         <div class="button-container">
@@ -120,7 +114,7 @@
             <p>Nos últimos anos, é fácil perceber que cada vez mais jovens recorrem a procedimentos estéticos. Um dos principais motivos é a influência das redes sociais, que mostram padrões de beleza muitas vezes irreais. Fotos editadas e filtros criam a impressão de que é preciso ter um rosto ou corpo perfeito para ser aceito. Outro fator é que as técnicas de estética estão mais acessíveis e menos invasivas, facilitando uma decisão de fazer uma mudança. Muitos acabam buscando esses procedimentos para melhorar a autoestima ou para se encaixar em um padrão imposto. Apesar disso, é importante lembrar que a pressão estética pode trazer consequências, como insegurança e insatisfação constante com a própria imagem. Valorizar a diversidade e aprender a aceitar o próprio corpo são passos essenciais para que a estética seja uma boa escolha consciente, e não uma obrigação. Assim, é fundamental promover a autoestima e incentivar escolhas saudáveis, para que a beleza seja vista de forma livre e natural.</p>
         </div>
 
-        <!-- Outras redações vão aqui com id redacao2, redacao3,... redacao15 -->
+        <!-- Aqui você pode adicionar redacao2, redacao3,... redacao15 -->
 
     </div>
 
@@ -137,4 +131,5 @@
     </script>
 </body>
 </html>
+
 
