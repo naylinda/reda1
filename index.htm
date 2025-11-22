@@ -3,24 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redação Disney</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Redações</title>
+    <!-- Fonte legível para texto -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 700px;
+            padding: 30px;
+            background: rgba(255, 240, 245, 0.9);
+            border-radius: 60px;
+            box-shadow: 0 0 100px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 600;
+            color: #d63384;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button-container button {
+            background-color: #ff9cd4;
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 12px 20px;
+            margin: 5px;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #d63384;
+        }
+
+        .redacao {
+            display: none;
+            margin-top: 20px;
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .redacao h2 {
+            font-weight: 600;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        /* Imagem de fundo */
+        .background-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Redação Disney ✨</h1>
-        <p>15 manchetes inspiradas no mundo mágico</p>
-    </header>
+    <!-- Imagem de fundo -->
+    <img src="castelo.png" alt="Fundo Disney Princesas" class="background-img">
 
-    <main class="container" id="manchetes">
-        <!-- As manchetes serão adicionadas pelo JavaScript -->
-    </main>
+    <div class="container">
+        <h1>Redações</h1>
+        <div class="button-container">
+            <button onclick="mostrarRedacao(1)">1. Procedimentos Estéticos</button>
+            <button onclick="mostrarRedacao(2)">2. Acessibilidade e Inclusão</button>
+            <button onclick="mostrarRedacao(3)">3. Qualidade de Vida</button>
+            <button onclick="mostrarRedacao(4)">4. Mudanças Climáticas</button>
+            <button onclick="mostrarRedacao(5)">5. Lixo Eletrônico</button>
+            <button onclick="mostrarRedacao(6)">6. Consumo Ultraprocessado</button>
+            <button onclick="mostrarRedacao(7)">7. Dependência em Jogos</button>
+            <button onclick="mostrarRedacao(8)">8. Trabalho Voluntário</button>
+            <button onclick="mostrarRedacao(9)">9. Adultização Infantil</button>
+            <button onclick="mostrarRedacao(10)">10. Etarismo</button>
+            <button onclick="mostrarRedacao(11)">11. Educação Financeira</button>
+            <button onclick="mostrarRedacao(12)">12. Cultura Popular</button>
+            <button onclick="mostrarRedacao(13)">13. Saneamento Básico</button>
+            <button onclick="mostrarRedacao(14)">14. Esporte</button>
+            <button onclick="mostrarRedacao(15)">15. Crônica</button>
+        </div>
 
-    <footer>
-        <p>Feito com 💙 inspirado na magia Disney</p>
-    </footer>
+        <div id="redacao1" class="redacao">
+            <h2>1. Por que os procedimentos estéticos estão aumentando entre os jovens?</h2>
+            <p>Nos últimos anos, é fácil perceber que cada vez mais jovens recorrem a procedimentos estéticos. Um dos principais motivos é a influência das redes sociais, que mostram padrões de beleza muitas vezes irreais. Fotos editadas e filtros criam a impressão de que é preciso ter um rosto ou corpo perfeito para ser aceito. Outro fator é que as técnicas de estética estão mais acessíveis e menos invasivas, facilitando uma decisão de fazer uma mudança. Muitos acabam buscando esses procedimentos para melhorar a autoestima ou para se encaixar em um padrão imposto. Apesar disso, é importante lembrar que a pressão estética pode trazer consequências, como insegurança e insatisfação constante com a própria imagem. Valorizar a diversidade e aprender a aceitar o próprio corpo são passos essenciais para que a estética seja uma boa escolha consciente, e não uma obrigação. Assim, é fundamental promover a autoestima e incentivar escolhas saudáveis, para que a beleza seja vista de forma livre e natural.</p>
+        </div>
 
-    <script src="script.js"></script>
+        <!-- Outras redações vão aqui com id redacao2, redacao3,... redacao15 -->
+
+    </div>
+
+    <script>
+        function mostrarRedacao(num) {
+            const todasRedacoes = document.querySelectorAll('.redacao');
+            todasRedacoes.forEach(r => r.style.display = 'none');
+            const redacaoSelecionada = document.getElementById('redacao' + num);
+            if (redacaoSelecionada) {
+                redacaoSelecionada.style.display = 'block';
+                redacaoSelecionada.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
+
