@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redações</title>
-    <!-- Fonte legível para texto -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== BODY COM FUNDO BONITO ===== */
         body {
             margin: 0;
             padding: 0;
@@ -18,8 +16,6 @@
             justify-content: center;
             align-items: center;
             position: relative;
-
-            /* Fundo em gradiente animado */
             background: linear-gradient(135deg, #ff9cd4, #ffd6e8, #fff0f5);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -31,7 +27,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ===== CONTAINER ===== */
         .container {
             max-width: 700px;
             padding: 30px;
@@ -41,7 +36,6 @@
             z-index: 1;
         }
 
-        /* ===== TÍTULO ===== */
         h1 {
             text-align: center;
             font-weight: 600;
@@ -50,7 +44,6 @@
             font-size: 36px;
         }
 
-        /* ===== BOTÕES ===== */
         .button-container {
             text-align: center;
             margin-bottom: 20px;
@@ -73,18 +66,47 @@
             color: #fff;
         }
 
-        /* ===== REDAÇÕES ===== */
+        /* ===== REDAÇÕES CENTRALIZADAS ===== */
         .redacao {
             display: none;
-            margin-top: 20px;
-            line-height: 1.7;
-            font-size: 18px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 40px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            z-index: 10;
         }
 
         .redacao h2 {
             font-weight: 600;
             color: #d63384;
             margin-bottom: 15px;
+        }
+
+        /* Botão de fechar redação */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: #d63384;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover {
+            background: #ff9cd4;
+            color: #000;
         }
     </style>
 </head>
@@ -108,14 +130,13 @@
             <button onclick="mostrarRedacao(14)">14. Esporte</button>
             <button onclick="mostrarRedacao(15)">15. Crônica</button>
         </div>
+    </div>
 
-        <div id="redacao1" class="redacao">
-            <h2>1. Por que os procedimentos estéticos estão aumentando entre os jovens?</h2>
-            <p>Nos últimos anos, é fácil perceber que cada vez mais jovens recorrem a procedimentos estéticos. Um dos principais motivos é a influência das redes sociais, que mostram padrões de beleza muitas vezes irreais. Fotos editadas e filtros criam a impressão de que é preciso ter um rosto ou corpo perfeito para ser aceito. Outro fator é que as técnicas de estética estão mais acessíveis e menos invasivas, facilitando uma decisão de fazer uma mudança. Muitos acabam buscando esses procedimentos para melhorar a autoestima ou para se encaixar em um padrão imposto. Apesar disso, é importante lembrar que a pressão estética pode trazer consequências, como insegurança e insatisfação constante com a própria imagem. Valorizar a diversidade e aprender a aceitar o próprio corpo são passos essenciais para que a estética seja uma boa escolha consciente, e não uma obrigação. Assim, é fundamental promover a autoestima e incentivar escolhas saudáveis, para que a beleza seja vista de forma livre e natural.</p>
-        </div>
-
-        <!-- Aqui você pode adicionar redacao2, redacao3,... redacao15 -->
-
+    <!-- Exemplo de redação -->
+    <div id="redacao1" class="redacao">
+        <button class="close-btn" onclick="fecharRedacao(1)">Fechar</button>
+        <h2>1. Por que os procedimentos estéticos estão aumentando entre os jovens?</h2>
+        <p>Nos últimos anos, é fácil perceber que cada vez mais jovens recorrem a procedimentos estéticos. Um dos principais motivos é a influência das redes sociais, que mostram padrões de beleza muitas vezes irreais. Fotos editadas e filtros criam a impressão de que é preciso ter um rosto ou corpo perfeito para ser aceito. Outro fator é que as técnicas de estética estão mais acessíveis e menos invasivas, facilitando uma decisão de fazer uma mudança. Muitos acabam buscando esses procedimentos para melhorar a autoestima ou para se encaixar em um padrão imposto. Apesar disso, é importante lembrar que a pressão estética pode trazer consequências, como insegurança e insatisfação constante com a própria imagem. Valorizar a diversidade e aprender a aceitar o próprio corpo são passos essenciais para que a estética seja uma boa escolha consciente, e não uma obrigação. Assim, é fundamental promover a autoestima e incentivar escolhas saudáveis, para que a beleza seja vista de forma livre e natural.</p>
     </div>
 
     <script>
@@ -125,7 +146,13 @@
             const redacaoSelecionada = document.getElementById('redacao' + num);
             if (redacaoSelecionada) {
                 redacaoSelecionada.style.display = 'block';
-                redacaoSelecionada.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function fecharRedacao(num) {
+            const redacao = document.getElementById('redacao' + num);
+            if (redacao) {
+                redacao.style.display = 'none';
             }
         }
     </script>
